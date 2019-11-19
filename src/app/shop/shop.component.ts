@@ -68,10 +68,11 @@ export class ShopComponent implements OnInit {
     }
   }
   openAddpopup(addtemp){
+    this.prod.reset();
     this.modalRef = this.modalService.show(addtemp);
   }
   AddProduct(item){
-    this.prod.reset();
+
     this.data.addnewprod(item).subscribe(
       (data:any)=>{
         // alert('added successfully');
