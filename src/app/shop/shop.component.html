@@ -1,0 +1,129 @@
+<div style="padding-top: 450px;" *ngIf="isloading;else elseblock">
+    <div class="mb-2" >
+        <progressbar class="progress-striped active" [striped]="true" [value]="50" type="primary"><i>loading</i></progressbar>
+    </div>
+    </div>
+<ng-template #elseblock>
+    <h3>Products Display</h3>
+    <span><button class="btn-warning" (click)="openAddpopup(addtemp)">Add Products</button></span>
+    <div></div>
+    <br>
+    <div *ngFor="let alert of alerts">
+        <alert [type]="alert.type" [dismissOnTimeout]="alert.timeout" >{{ alert.msg }}</alert>
+      </div>
+    <div class="row">
+        <div  class="col-sm-6 col-md-4" *ngFor="let item of product">
+              <div class="card" >
+                  <div class="card-body" tooltip="Description:  {{item.pro_desc}}"  placement="top">
+                    <img [src]="item.pro_img" height="200px" width="200px" class="img" alt="...">
+                    <h5 class="card-title">{{item.pro_name}}</h5>
+                    <p class="card-text">{{item.pro_desc}}</p>
+                    <p class="card-text">{{item.pro_qty}}</p>
+                    <p class="card-text">{{item.pro_mfg}}</p>
+                    <p class="card-text">{{item.pro_price | currency:'INR' }}</p>
+                   <button class="butt" (click)="opendelModal(template,item)"><i class="fa fa-trash"></i> Delete</button>&nbsp;&nbsp;
+                   <button class="btn-secondary" (click)="openEditpopup(editpop,item)"><i class="fa fa-pencil"></i> Edit</button>
+                  </div>
+              </div>
+    </div>
+    <br>
+    </div>
+</ng-template>
+
+<ng-template #template>
+    <div class="modal-body text-center">
+      <p>Do you want to confirm?</p>
+      <button type="button" class="butt" (click)="confirm()">Yes</button>&nbsp;&nbsp;
+      <button type="button" class="btn-secondary" (click)="decline()">No</button>
+    </div>
+</ng-template>
+
+<!---------------add popup------------------------->
+<ng-template #addtemp>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Add Products</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form [formGroup]="prod" (ngSubmit)="AddProduct(prod.value)">
+    <div class="modal-body">
+          <div class="form-group">
+              <Label>Product Name</Label>
+              <input formControlName="pro_name" class="form-control" placeholder="Enter Product Name">
+            </div>
+            <div class="form-group">
+                <Label>Product Price</Label>
+                <input formControlName="pro_price" class="form-control" placeholder="Enter Product Price">
+              </div>
+              <div class="form-group">
+                  <Label>Product Desc</Label>
+                  <input formControlName="pro_desc" class="form-control" placeholder="Enter Product Desc">
+                </div>
+                <div class="form-group">
+                    <Label>Product Qty</Label>
+                    <input formControlName="pro_qty"  class="form-control" placeholder="Enter Product Qty">
+                  </div>
+                  <div class="form-group">
+                      <Label>Product Mfg</Label>
+                      <input formControlName="pro_mfg"  class="form-control" placeholder="Enter Product Mfg">
+                    </div>
+                    <div class="form-group">
+                        <Label>Product Image</Label>
+                        <input formControlName="pro_img" class="form-control" placeholder="Enter Product Image">
+                      </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn-warning">Save</button>&nbsp;&nbsp;
+        <button type="button" class="btn-secondary" (click)="decline()">Cancel</button>
+      </div>
+    </form>
+  </ng-template>
+
+
+
+
+
+<!-----------------Edit popup---------------------->
+
+
+<ng-template #editpop>
+    <div class="modal-header">
+      <h4 class="modal-title pull-left">Edit Product</h4>
+      <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <form [formGroup]="prod" (ngSubmit)="updateproduct(prod.value)">
+    <div class="modal-body">
+          <div class="form-group">
+              <Label>Product Name</Label>
+              <input formControlName="pro_name" class="form-control" placeholder="Enter Product Name">
+            </div>
+            <div class="form-group">
+                <Label>Product Price</Label>
+                <input formControlName="pro_price" class="form-control" placeholder="Enter Product Price">
+              </div>
+              <div class="form-group">
+                  <Label>Product Desc</Label>
+                  <input formControlName="pro_desc" class="form-control" placeholder="Enter Product Desc">
+                </div>
+                <div class="form-group">
+                    <Label>Product Qty</Label>
+                    <input formControlName="pro_qty"  class="form-control" placeholder="Enter Product Qty">
+                  </div>
+                  <div class="form-group">
+                      <Label>Product Mfg</Label>
+                      <input formControlName="pro_mfg"  class="form-control" placeholder="Enter Product Mfg">
+                    </div>
+                    <div class="form-group">
+                        <Label>Product Image</Label>
+                        <input formControlName="pro_img" class="form-control" placeholder="Enter Product Image">
+                      </div>
+    </div>
+    <div class="modal-footer">
+        <button type="submit" class="btn-warning">Save</button>&nbsp;&nbsp;
+        <button type="button" class="btn-secondary" (click)="decline()">Cancel</button>
+      </div>
+    </form>
+  </ng-template>

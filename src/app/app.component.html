@@ -1,0 +1,11 @@
+<div style="padding-top: 450px;" *ngIf="isloading;else elseblock">
+<div class="mb-2" >
+    <progressbar class="progress-striped active" [striped]="true" [value]="50" type="primary"><i>loading</i></progressbar>
+</div>
+</div>
+
+<ng-template #elseblock>
+<app-main></app-main>
+<router-outlet></router-outlet>
+</ng-template>
+

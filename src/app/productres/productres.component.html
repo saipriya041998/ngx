@@ -1,0 +1,20 @@
+<h3>Products Display</h3>
+<div></div>
+<br>
+
+<div class="row">
+    <div  class="col-sm-6 col-md-4" *ngFor="let item of arr">
+          <div class="card" >
+              <div class="card-body" tooltip="Description:  {{item.pro_desc}}"  placement="top">
+                <img [src]="item.pro_img" height="200px" width="200px" class="img" alt="...">
+                <h5 class="card-title">{{item.pro_name}}</h5>
+                <p class="card-text">{{item.pro_desc}}</p>
+                <p class="card-text">{{item.pro_qty}}</p>
+                <p class="card-text">{{item.pro_mfg}}</p>
+                <p class="card-text">{{item.pro_price | currency:'INR' }}</p>
+
+              </div>
+          </div>
+</div>
+<br>
+</div>

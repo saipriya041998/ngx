@@ -1,0 +1,84 @@
+<!-- <carousel>
+  <slide>
+    <img src="assets/1.jpg" alt="first slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="assets/2.jpg" alt="second slide" style="display: block; width: 100%;">
+  </slide>
+  <slide>
+    <img src="assets/3.jpg" alt="third slide" style="display: block; width: 100%;">
+  </slide>
+</carousel>
+
+
+
+<button type="button" class="btn btn-primary" (click)="openModal(template)">Create template modal</button>
+
+
+
+<ng-template #template>
+  <div class="modal-header">
+    <h4 class="modal-title pull-left">Modal</h4>
+    <button type="button" class="close pull-right" aria-label="Close" (click)="modalRef.hide()">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    This is a modal.
+  </div>
+</ng-template> -->
+
+
+
+<div class="row">
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <bs-sortable
+      [(ngModel)]="itemObjectsLeft"
+      fieldName="name"
+      itemClass="sortable-item"
+      itemActiveClass="sortable-item-active"
+      placeholderItem="Drag here"
+      placeholderClass="placeholderStyle"
+      wrapperClass="sortable-wrapper"
+    ></bs-sortable>
+    <pre class="code-preview">{{ itemObjectsLeft | json }}</pre>
+  </div>
+  <div class="col-xs-6 col-6 col-md-5 col-lg-3">
+    <bs-sortable
+      [(ngModel)]="itemObjectsRight"
+      fieldName="name"
+      itemClass="sortable-item"
+      itemActiveClass="sortable-item-active"
+      placeholderItem="Drag here"
+      placeholderClass="placeholderStyle"
+      wrapperClass="sortable-wrapper"
+    ></bs-sortable>
+    <pre class="code-preview">{{ itemObjectsRight | json }}</pre>
+  </div>
+</div>
+
+
+<accordion>
+    <accordion-group heading="Static Header">
+      This content is straight in the template.
+    </accordion-group>
+    <accordion-group heading="Another group">
+      <p>Some content</p>
+    </accordion-group>
+    <accordion-group heading="Another group">
+      <p>Some content</p>
+    </accordion-group>
+    <accordion-group heading="Another group">
+      <p>Some content</p>
+    </accordion-group>
+</accordion>
+
+
+  <div>
+      <tabset>
+        <tab heading="Basic title" id="tab1">Basic content</tab>
+        <tab heading="Basic Title 1">Basic content 1</tab>
+        <tab heading="Basic Title 2">Basic content 2</tab>
+      </tabset>
+  </div>
+

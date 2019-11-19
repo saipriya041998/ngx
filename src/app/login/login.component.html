@@ -1,0 +1,31 @@
+
+  <div class="container-fluid">
+    <div class="jumbotron">
+        <h1 class="display-4">Log In!!</h1>
+        <form [formGroup]="login" (ngSubmit)="onlogin(login.value)">
+        <p class="lead"></p>
+        <hr class="my-4">
+        <div class="form-group">
+            <label>User Name</label>
+            <input type="text" formControlName="username" placeholder="Enter username" class="form-control">
+            <label class='alert alert-danger' *ngIf="login.get('username').hasError('required') && !login.get('username').pristine">user name is required</label>
+          </div>
+          <div class="form-group">
+              <label>Password</label>
+              <input type="text" formControlName="password" placeholder="Enter password"  class="form-control">
+              <label class='alert alert-danger' *ngIf="login.get('password').hasError('required') && !login.get('password').pristine">user name is required</label>
+            </div>
+          <div class="form-group">
+                  <button type="submit" [disabled]='!login.valid' class="butt">Login</button>&nbsp;&nbsp;
+                  <button type="reset" class="btn-secondary">Reset</button>
+          </div>
+        <hr>
+      </form>
+      <div class="pull-left">
+        <a routerLink='/signup'><h4>New User</h4></a>
+      </div>
+    </div>
+  </div>
+
+
+
