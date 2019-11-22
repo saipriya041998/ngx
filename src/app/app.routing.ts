@@ -7,6 +7,7 @@ import { LoginComponent } from './login/login.component';
 import { SignupComponent } from './signup/signup.component';
 import { ProductresComponent } from './productres/productres.component';
 import { ResolverService } from './services/resolver.service';
+import { SideComponent } from './side/side.component';
 
 
 const arr:Routes=[
@@ -16,7 +17,8 @@ const arr:Routes=[
   { path:'shop',component:ShopComponent},
   { path:'login',component:LoginComponent},
   { path:'signup',component:SignupComponent},
-  { path:'prores',resolve:{pdata:ResolverService},component:ProductresComponent}
+  { path:'prores',resolve:{pdata:ResolverService},component:ProductresComponent},
+  { path:'side',component:SideComponent}
 
 ];
 

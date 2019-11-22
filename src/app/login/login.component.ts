@@ -29,7 +29,7 @@ export class LoginComponent implements OnInit {
     if (this.data.redirectURL) {
       this.route.navigateByUrl(this.data.redirectURL);
     } else {
-      this.route.navigate(['']);
+      this.route.navigate(['/shop']);
     }
   }
 }

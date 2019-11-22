@@ -26,6 +26,10 @@ import { SignupComponent } from './signup/signup.component';
 import { BsDatepickerModule } from 'ngx-bootstrap/datepicker';
 import { ProgressbarModule } from 'ngx-bootstrap/progressbar';
 import { ProductresComponent } from './productres/productres.component';
+import { PaginationModule } from 'ngx-bootstrap/pagination';
+import { SideComponent } from './side/side.component';
+import { CollapseModule } from 'ngx-bootstrap';
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -37,7 +41,8 @@ import { ProductresComponent } from './productres/productres.component';
     LoginComponent,
     ShopComponent,
     SignupComponent,
-    ProductresComponent
+    ProductresComponent,
+    SideComponent
   ],
   imports: [
     BrowserModule,
@@ -46,6 +51,7 @@ import { ProductresComponent } from './productres/productres.component';
     ReactiveFormsModule,
     approuting,
     HttpClientModule,
+    CollapseModule.forRoot(),
     CarouselModule.forRoot(),
     ModalModule.forRoot(),
     SortableModule.forRoot(),
@@ -56,7 +62,8 @@ import { ProductresComponent } from './productres/productres.component';
     AlertModule.forRoot(),
     RatingModule.forRoot(),
     BsDatepickerModule.forRoot(),
-    ProgressbarModule.forRoot()
+    ProgressbarModule.forRoot(),
+    PaginationModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent]
